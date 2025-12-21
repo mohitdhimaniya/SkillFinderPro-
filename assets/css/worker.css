@@ -1,0 +1,368 @@
+/* ========================= WORKERS PAGE  ========================= */
+:root {
+    --primary-color: #00a8e8;
+    --header-color: #1f2f40;
+    --text-color: #333;
+    --bg-color: #f4f7fb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* ========================= HEADER ========================= */
+header {
+    width: 100%;
+    padding: 15px 30px;
+    background: #1f2f40;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #00eaff;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    margin-left: 18px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: #00eaff;
+    text-shadow: 0 0 8px #00eaff;
+}
+
+.login-btn {
+    padding: 8px 18px;
+    background: #00eaff;
+    border-radius: 8px;
+    color: #000 !important;
+}
+
+/* ========================= SUB HEADER ========================= */
+.sub-header {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--header-color);
+}
+
+/* ========================= FILTERS ========================= */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 20px;
+    flex-wrap: wrap;
+    padding: 0 15px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 140px;
+}
+
+.filter-group label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.filters select {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 2px solid #e1e5e9;
+    font-size: 15px;
+    background: #fff;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    font-family: inherit;
+}
+
+.filters select:focus {
+    outline: none;
+    border-color: #00eaff;
+    box-shadow: 0 0 0 3px rgba(0,234,255,0.1);
+}
+
+/* ========================= WORKER CARDS  ========================= */
+.worker-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 25px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.worker-card {
+    background: #fff;
+    padding: 18px;
+    text-align: center;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.worker-card:nth-child(1) { animation-delay: 0.1s; }
+.worker-card:nth-child(2) { animation-delay: 0.2s; }
+.worker-card:nth-child(3) { animation-delay: 0.3s; }
+.worker-card:nth-child(4) { animation-delay: 0.4s; }
+.worker-card:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.worker-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00eaff, #ffae00);
+}
+
+.worker-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.worker-card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+    border: 3px solid #00eaff;
+    box-shadow: 0 6px 15px rgba(0,234,255,0.3);
+}
+
+.worker-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--header-color);
+}
+
+.worker-info {
+    color: #666;
+    font-size: 14px;
+    margin: 4px 0;
+}
+
+.worker-info p {
+    margin: 4px 0;
+}
+
+.worker-fees {
+    font-size: 16px;
+    font-weight: 600;
+    color: #00eaff;
+    margin: 8px 0;
+}
+
+.worker-card a {
+    display: inline-block;
+    margin-top: 10px;
+    background: linear-gradient(135deg, #00eaff, #00c2d6);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,234,255,0.3);
+}
+
+.worker-card a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,234,255,0.4);
+}
+
+/* ========================= STATES ========================= */
+.loading {
+    text-align: center;
+    padding: 50px;
+    font-size: 18px;
+    color: #666;
+}
+
+.no-results {
+    text-align: center;
+    padding: 80px 20px;
+    color: #666;
+}
+
+.no-results h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* ========================= MOBILE RESPONSIVE - HAMBURGER FIXED ========================= */
+@media (max-width: 768px) {
+    header {
+        padding: 12px 20px;
+    }
+    
+    .logo-img {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .logo {
+        font-size: 22px;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    /* FIXED: #nav-links ID selector */
+    #nav-links {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #1f2f40;
+        flex-direction: column;
+        padding: 20px 0;
+        border-top: 2px solid #00eaff;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        z-index: 999;
+    }
+    
+    #nav-links.active {
+        display: flex !important;
+    }
+    
+    #nav-links a {
+        margin: 8px 0;
+        padding: 15px 20px;
+        font-size: 17px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        display: block;
+    }
+    
+    header {
+        position: relative;
+    }
+    
+    .sub-header {
+        font-size: 24px;
+        margin: 25px 15px;
+        padding: 0 15px;
+    }
+    
+    .filters {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin: 25px 15px;
+    }
+    
+    .filter-group {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .worker-list {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 20px 15px;
+    }
+    
+    .worker-card {
+        padding: 15px;
+    }
+    
+    .worker-card img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sub-header {
+        font-size: 20px;
+    }
+    
+    .filters select {
+        padding: 14px 18px;
+        font-size: 16px;
+    }
+    
+    .worker-card img {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .worker-card h3 {
+        font-size: 17px;
+    }
+}
